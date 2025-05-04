@@ -1,0 +1,58 @@
+\section{Ramas}
+
+    \subsection{Qu\'e es una rama y para que sirve?}
+        Una rama en GIT es una linea independiente de desarrollo dentro de un repositorio. Nos permite trabajar en caracter\'isticas, ideas o cambios sin afectar la rama principal del proyecto. La rama por defecto en GIT se llama \texttt{master} o \texttt{main}, dependiendo de la configuracion inicial.
+
+        Las ramas son especialmente utiles para:
+        \begin{itemize}
+            \item Experimentar sin romper el proyecto principal.
+            \item Desarrollar nuevas caracteristicas de forma aislada.
+            \item Organizar el trabajo entre distintos desarrolladores.
+        \end{itemize}
+
+        Cuando creamos una rama, esta copia el estado actual del repositorio, y desde ese punto podemos trabajar de forma independiente. Luego, si los cambios funcionan, podemos integrarlos a la rama principal.
+
+    \subsection{Trabajar con ramas}
+        Para comenzar a trabajar con ramas, necesitamos saber como crearlas, listarlas, y cambiarnos entre ellas.
+
+        \subsubsection{Crear una nueva rama}
+            Para crear una nueva rama usamos el comando:
+            \begin{lstlisting}
+                \$ git branch nombre-de-la-rama
+            \end{lstlisting}
+
+            Esto crea la rama pero no nos mueve a ella. Para cambiarnos, usamos:
+
+            \begin{lstlisting}
+                \$ git switch nombre-de-la-rama
+            \end{lstlisting}
+
+            O tambien para crearla y movernos a esa rama en un solo paso agregamos la bandera \texttt{-c}
+            \begin{lstlisting}
+                \$ git switch -c nombre-de-la-rama
+            \end{lstlisting}
+
+        \subsubsection{Ver las ramas disponibles}
+            Para ver todas las ramas del repositorio local, usamos:
+            \begin{lstlisting}
+                \$ git branch
+            \end{lstlisting}
+
+            Esto mostrara un listado de ramas, y marcar\'a con un asterisco la rama en la que estamos actualmente.
+
+        \subsubsection{Cambiar entre ramas}
+            Para cambiar a otra rama existente usamos:
+            \begin{lstlisting}
+                \$ git switch nombre-de-la-rama
+            \end{lstlisting}
+            
+        \subsubsection{Eliminar una rama}
+            Para eliminar una rama local usamos:
+            \begin{lstlisting}
+                \$ git branch -d nombre-de-la-rama
+            \end{lstlisting}
+
+            Si GIT nos dice que la rama no se puede eliminar porque no ha sido fusionada (merged), y aun asi queremos borrarla, podemos usar la opcion \texttt{-D} (mayuscula):
+            \begin{lstlisting}
+                \$ git branch -D nombre-de-la-rama
+            \end{lstlisting}
