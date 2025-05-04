@@ -8,3 +8,31 @@
 \usepackage[spanish, mexico]{babel}
 \usepackage{fancyhdr}
 \usepackage{float}
+
+\newcommand{\titulo}{Apuntes de GIT}
+
+\title{\textbf{\titulo}}
+\date{}
+
+\pagestyle{fancy}
+
+\fancypagestyle{firstpage}{
+    \fancyhead{}
+    \fancyhead[LE, LO]{
+        \textit{Curso de introducci\'on a GIT}\\
+        SCESI\\
+        Jaime Sebastian Chavarria Fuertes
+    }
+    \fancyhead[R]{\today \\ \titulo}
+}
+
+\fancyhf{}
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[RE,LO]{\lec}
+
+\begin{document}
+    \maketitle
+
+    \vspace{-1cm}
+    \thispagestyle{firstpage}
+\end{document}
