@@ -19,70 +19,70 @@
             Antes de comenzar a usar GIT, se debe realizar ciertas configuraciones
             \subsubsection{Correo electronico}
                 Para indicarle a GIT nuestro correo electr\'onico debemos ejecutar este comando:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --global user.email ``reemplaza esto por tu correo''
-                    \end{lstlistings}
+                    \end{lstlisting}
                     Por ejemplo:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --global user.email ``jschavarria77@gmail.com''
-                    \end{lstlistings}
+                    \end{lstlisting}
             \subsubsection{Nombre}
                 Para indicarle a GIT nuestro nombre debemos ejecutar el siguiente comando:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --global user.name ``reemplaza esto por tu nombre completo''
-                    \end{lstlistings}
+                    \end{lstlisting}
                 Por ejemplo:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --global user.name ``Jaime Sebastian Chavarria Fuertes''
-                    \end{lstlistings}
+                    \end{lstlisting}
 
     \subsection{Configurar el editor de c\'odigo que abre GIT}
         GIT tiene configurado abrir por defecto el editor de texto \texttt{Vim} para poder modificar los archivos cuando encuentra conflictos o cuando usamos el comando \texttt{\$ git commit} sin la bandera y el argumento: \texttt{-m ``descripcion del commit''}.
         En caso de querer cambiar el editor por defecto disponemos del siguiente comando:
-            \begin{lstlistings}
+            \begin{lstlisting}
                 \$ git config --global core.editor ``el comando para abrir tu editor''
-            \end{lstlistings}
+            \end{lstlisting}
         En mi caso voy a colocar el editor nvim, entonces el comando ser\'ia:
-            \begin{lstlistings}
+            \begin{lstlisting}
                 \$ git config --global core.editor ``nvim''
-            \end{lstlistings}
+            \end{lstlisting}
     
     \subsection{Comprobar la configuraci\'on de GIT}
         Para poder ver la configuraci\'on que tenemos en git podemos usar el siguiente comando:
-            \begin{lstlistings}
+            \begin{lstlisting}
                 \$ git config --list
-            \end{lstlistings}
+            \end{lstlisting}
         Que nos producira una salida de este tipo:
-            \begin{lstlistings}
+            \begin{lstlisting}
                 user.email=202301300@est.umss.edu
                 user.name=Jaime Sebastian Chavarria Fuertes
                 core.repositoryformatversion=0
                 core.filemode=true
                 core.bare=false
                 core.logallrefupdates=true
-            \end{lstlistings}
+            \end{lstlisting}
         Podemos jugar con las banderas de \texttt{list}, por ejemplo:
             \begin{itemize}
                 \item Para poder mostrar la unicamente la configuraci\'on global:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --global --list
-                    \end{lstlistings}
+                    \end{lstlisting}
                 \item Para poder mostrar la configuraci\'on del repositorio local:
-                    \begin{lstlistings}
+                    \begin{lstlisting}
                         \$ git config --local --list
-                    \end{lstlistings}
+                    \end{lstlisting}
             \end{itemize}
         Y muchas mas que se pueden revisar en \href{https://git-scm.com/docs/git-config}{este enlace de la documentaci\'on de GIT}
     
     \subsection{C\'omo inicializar un nuevo proyecto en GIT?}
         Para crear un nuevo repositorio local podemos utilizar el comando:
-            \begin{lstlistings}
+            \begin{lstlisting}
                 \$ git init <direccion de la carpeta>
-            \end{lstlistings}
+            \end{lstlisting}
         Este comando nos creara una carpeta con el nombre asignado en la direcci\'on.
 
         Pero si en caso de tener ya un proyecto podemos ejecutar el mismo comando dentro de la carpeta ra\'iz de nuestro proyecto pero sin pasarle de argumento nada.
-            \begin{lstlistings}
+            \begin{lstlisting}
                 \$ git init
-            \end{lstlistings}
+            \end{lstlisting}
         Y asi ya habremos comenzado a utilizar GIT al fin.
