@@ -1,6 +1,7 @@
 \section{Introducci\'on}
     \subsection{Qu\'e es un sistema de control de versiones?}
         Un sistema de control de versiones es un software que nos permite registrar los cambios que son realizados en un archivo o un conjunto de archivos a lo largo del tiempo, no es \'util por el hecho de la facilidad de que varias personas trabajen en un mismo proyecto al mismo tiempo, tambien nos ayuda a que en caso de un error podamos volver a versiones pasadas funcionales de dicho proyecto.
+
     \subsection{Fundamentos de GIT}
         GIT se basa en los repositorios, un repositorio no es mas que el lugar donde se alojan las versiones de un proyecto junto con el log de cambios que se han hecho en ese proyects.
         Dichos repositorios pueden ser tanto locales como remotos
@@ -13,6 +14,7 @@
 
                     Los repositorios remotos son los que se ubican en un servidor, los cuales permiten que varias personas vean nuestro proyecto, que realicen cambios en el y que esos cambios sean sincronizados.
             \end{itemize}
+
     \subsection{Configuraci\'on inicial}
             Antes de comenzar a usar GIT, se debe realizar ciertas configuraciones
             \subsubsection{Correo electronico}
@@ -33,3 +35,54 @@
                     \begin{lstlistings}
                         \$ git config --global user.name ``Jaime Sebastian Chavarria Fuertes''
                     \end{lstlistings}
+
+    \subsection{Configurar el editor de c\'odigo que abre GIT}
+        GIT tiene configurado abrir por defecto el editor de texto \texttt{Vim} para poder modificar los archivos cuando encuentra conflictos o cuando usamos el comando \texttt{\$ git commit} sin la bandera y el argumento: \texttt{-m ``descripcion del commit''}.
+        En caso de querer cambiar el editor por defecto disponemos del siguiente comando:
+            \begin{lstlistings}
+                \$ git config --global core.editor ``el comando para abrir tu editor''
+            \end{lstlistings}
+        En mi caso voy a colocar el editor nvim, entonces el comando ser\'ia:
+            \begin{lstlistings}
+                \$ git config --global core.editor ``nvim''
+            \end{lstlistings}
+    
+    \subsection{Comprobar la configuraci\'on de GIT}
+        Para poder ver la configuraci\'on que tenemos en git podemos usar el siguiente comando:
+            \begin{lstlistings}
+                \$ git config --list
+            \end{lstlistings}
+        Que nos producira una salida de este tipo:
+            \begin{lstlistings}
+                user.email=202301300@est.umss.edu
+                user.name=Jaime Sebastian Chavarria Fuertes
+                core.repositoryformatversion=0
+                core.filemode=true
+                core.bare=false
+                core.logallrefupdates=true
+            \end{lstlistings}
+        Podemos jugar con las banderas de \texttt{list}, por ejemplo:
+            \begin{itemize}
+                \item Para poder mostrar la unicamente la configuraci\'on global:
+                    \begin{lstlistings}
+                        \$ git config --global --list
+                    \end{lstlistings}
+                \item Para poder mostrar la configuraci\'on del repositorio local:
+                    \begin{lstlistings}
+                        \$ git config --local --list
+                    \end{lstlistings}
+            \end{itemize}
+        Y muchas mas que se pueden revisar en \href{https://git-scm.com/docs/git-config}{este enlace de la documentaci\'on de GIT}
+    
+    \subsection{C\'omo inicializar un nuevo proyecto en GIT?}
+        Para crear un nuevo repositorio local podemos utilizar el comando:
+            \begin{lstlistings}
+                \$ git init <direccion de la carpeta>
+            \end{lstlistings}
+        Este comando nos creara una carpeta con el nombre asignado en la direcci\'on.
+
+        Pero si en caso de tener ya un proyecto podemos ejecutar el mismo comando dentro de la carpeta ra\'iz de nuestro proyecto pero sin pasarle de argumento nada.
+            \begin{lstlistings}
+                \$ git init
+            \end{lstlistings}
+        Y asi ya habremos comenzado a utilizar GIT al fin.
