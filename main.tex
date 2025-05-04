@@ -9,9 +9,28 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{listings}
-
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
 
 \newcommand{\titulo}{Apuntes de GIT}
+
+\lstdefinelanguage{bash}{
+  morekeywords={sudo,git,cd,ls,mkdir,rm,cp,mv,echo},
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]",
+}
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  showstringspaces=false,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+}
 
 \title{\textbf{\titulo}}
 \date{}
