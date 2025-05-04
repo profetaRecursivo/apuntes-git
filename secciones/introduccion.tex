@@ -1,0 +1,35 @@
+\section{Introducci\'on}
+    \subsection{Qu\'e es un sistema de control de versiones?}
+        Un sistema de control de versiones es un software que nos permite registrar los cambios que son realizados en un archivo o un conjunto de archivos a lo largo del tiempo, no es \'util por el hecho de la facilidad de que varias personas trabajen en un mismo proyecto al mismo tiempo, tambien nos ayuda a que en caso de un error podamos volver a versiones pasadas funcionales de dicho proyecto.
+    \subsection{Fundamentos de GIT}
+        GIT se basa en los repositorios, un repositorio no es mas que el lugar donde se alojan las versiones de un proyecto junto con el log de cambios que se han hecho en ese proyects.
+        Dichos repositorios pueden ser tanto locales como remotos
+            \begin{itemize}
+                \item Locales.
+
+                    Los repositorios locales son los que tenemos en nuestra computadora.
+
+                \item Remoto.
+
+                    Los repositorios remotos son los que se ubican en un servidor, los cuales permiten que varias personas vean nuestro proyecto, que realicen cambios en el y que esos cambios sean sincronizados.
+            \end{itemize}
+    \subsection{Configuraci\'on inicial}
+            Antes de comenzar a usar GIT, se debe realizar ciertas configuraciones
+            \subsubsection{Correo electronico}
+                Para indicarle a GIT nuestro correo electr\'onico debemos ejecutar este comando:
+                    \begin{lstlistings}
+                        \$ git config --global user.email ``reemplaza esto por tu correo''
+                    \end{lstlistings}
+                    Por ejemplo:
+                    \begin{lstlistings}
+                        \$ git config --global user.email ``jschavarria77@gmail.com''
+                    \end{lstlistings}
+            \subsubsection{Nombre}
+                Para indicarle a GIT nuestro nombre debemos ejecutar el siguiente comando:
+                    \begin{lstlistings}
+                        \$ git config --global user.name ``reemplaza esto por tu nombre completo''
+                    \end{lstlistings}
+                Por ejemplo:
+                    \begin{lstlistings}
+                        \$ git config --global user.name ``Jaime Sebastian Chavarria Fuertes''
+                    \end{lstlistings}
