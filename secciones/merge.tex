@@ -6,13 +6,13 @@
         Para fusionar ramas, primero debemos cambiarnos a la rama que queremos actualizar. Por ejemplo, si queremos fusionar \texttt{feature-x} en \texttt{main}, primero hacemos:
 
         \begin{lstlisting}
-            \$ git switch main
+    $ git switch main
         \end{lstlisting}
 
         Luego ejecutamos el comando de fusion:
 
         \begin{lstlisting}
-            \$ git merge feature-x
+    $ git merge feature-x
         \end{lstlisting}
 
         GIT intentara aplicar todos los cambios de \texttt{feature-x} sobre \texttt{main}. Si no hay conflictos, la fusion se realiza automaticamente y se genera un nuevo commit de merge.
