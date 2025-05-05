@@ -14,13 +14,13 @@
     \subsection{C\'omo puedo hacer un commit?}
         Una vez que uno o varios archivos han sido agregados al \texttt{staging area}, se puede registrar ese conjunto de cambios usando el siguiente comando:
         \begin{lstlisting}
-            \$ git commit -m "mensaje descriptivo del cambio"
+    $ git commit -m "mensaje descriptivo del cambio"
         \end{lstlisting}
         La bandera \texttt{-m} sirve para escribir el mensaje directamente desde la l\'inea de comandos.
         
         Por ejemplo:
         \begin{lstlisting}
-            \$ git commit -m "agregada la seccion de introduccion"
+    $ git commit -m "agregada la seccion de introduccion"
         \end{lstlisting}
 
         Si omitimos \texttt{-m}, GIT abrir\'a el editor configurado (por defecto \texttt{Vim}) para que escribamos el mensaje del commit.
@@ -35,11 +35,11 @@
 
         Tambi\'en podemos ver el contenido de \texttt{HEAD} con:
         \begin{lstlisting}
-            \$ cat .git/HEAD
+    $ cat .git/HEAD
         \end{lstlisting}
         O podemos ver hash del commit exacto al que apunta:
         \begin{lstlisting}
-            \$ git rev-parse HEAD
+    $ git rev-parse HEAD
         \end{lstlisting}
 
         Saber qu\'e es \texttt{HEAD} es importante para entender c\'omo funcionan los cambios de rama, los rebase, y otros comandos avanzados de GIT.

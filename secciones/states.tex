@@ -12,30 +12,30 @@
     \subsection{C\'omo deshacer un archivo modificado?}
         Si realizamos cambios en un archivo pero luego queremos descartarlos y volver a la versi\'on original (la \'ultima registrada), podemos usar el comando:
         \begin{lstlisting}
-            $ git restore <ruta al archivo>
+    $ git restore <ruta al archivo>
         \end{lstlisting}
         Este comando elimina los cambios hechos en el archivo y lo deja exactamente como estaba en el \'ultimo registro conocido por GIT
 
-    \subsection{Cómo a\'~nadimos archivos al área de staging}
+    \subsection{Cómo a\~nadimos archivos al área de staging}
         Para marcar un archivo como ``preparado'' (pasarlo al estado \textbf{staged}), usamos el comando:
         \begin{lstlisting}
-            $ git add <archivo>
+    $ git add <archivo>
         \end{lstlisting}
         Tambi\'en podemos añadir todos los archivos modificados de una vez con:
         \begin{lstlisting}
-            $ git add .
+    $ git add .
         \end{lstlisting}
         Esto es \'util cuando tenemos varios cambios y queremos registrarlos juntos m\'as adelante.
 
-    \subsection{Cómo puedo sacar uno o varios archivos del área?}
+    \subsection{C\'omo puedo sacar uno o varios archivos del área?}
         Si accidentalmente agregamos un archivo al \'area de staging, pero queremos quitarlo de ah\'i (sin perder los cambios hechos), usamos:
         \begin{lstlisting}
-            $ git restore --staged <ruta al archivo>
+    $ git restore --staged <ruta al archivo>
         \end{lstlisting}
         Esto lo devuelve al estado de modificado, permiti\'endonos decidir luego si lo queremos preparar o no.
 
         También podemos desagregar todos los archivos preparados de una vez:
         \begin{lstlisting}
-            $ git restore --staged .
+    $ git restore --staged .
         \end{lstlisting}
         Este comando limpia el \'area de staging, sin afectar el contenido modificado de los archivos.
