@@ -1,0 +1,136 @@
+\section{GitHub}
+
+    \subsection{Git y GitHub: Son lo mismo?}
+
+        Git y GitHub no son lo mismo, aunque est\'an muy relacionados.
+
+        \begin{itemize}
+            \item \textbf{Git} es un sistema de control de versiones distribuido, lo que significa que puedes gestionar tu c\'odigo de manera local sin necesidad de conexi\'on a internet. 
+            \item \textbf{GitHub} es una plataforma en l\'inea que permite almacenar proyectos Git de manera remota, facilita la colaboraci\'on y proporciona herramientas para gestionar c\'odigo en equipos. Es, en esencia, un servicio de alojamiento basado en Git.
+        \end{itemize}
+
+        Git es la herramienta de control de versiones, mientras que GitHub es el servicio donde se aloja y comparte ese c\'odigo.
+
+
+
+    \subsection{Repositorios Remotos}
+
+        Un \textbf{repositorio remoto} es una versi\'on del repositorio que se encuentra alojada en un servidor, generalmente en la nube (como en GitHub). Estos repositorios permiten la colaboraci\'on en l\'inea y sirven para tener una copia de seguridad del proyecto.
+
+        Para trabajar con un repositorio remoto, se usa el comando \texttt{git remote}. Este comando se utiliza para vincular un repositorio local con uno remoto, lo que te permitir\'a sincronizar los cambios entre ambos.
+
+        \begin{lstlisting}
+    git remote add origin https://github.com/usuario/repositorio.git
+        \end{lstlisting}
+
+        Este comando agrega un repositorio remoto llamado \texttt{origin} que apunta a la URL del repositorio en GitHub.
+
+
+
+    \subsection{Clonando un Repositorio Remoto Creado Previamente}
+
+        Si ya existe un repositorio remoto en GitHub y deseas obtenerlo en tu computadora, puedes clonarlo utilizando el siguiente comando:
+
+        \begin{lstlisting}
+    git clone https://github.com/usuario/repositorio.git
+        \end{lstlisting}
+
+        Este comando crea una copia local exacta del repositorio remoto. Con esto, ya puedes comenzar a trabajar en tu copia local, haciendo cambios y luego subi\'endolos al repositorio remoto.
+
+
+
+    \subsection{¿C\'omo Enlazar un Repositorio Local con uno Remoto?}
+
+        Si ya tienes un repositorio local y quieres vincularlo a un repositorio remoto en GitHub, debes usar el siguiente comando:
+
+        \begin{lstlisting}
+    git remote add origin https://github.com/usuario/repositorio.git
+        \end{lstlisting}
+
+        Este comando vincula tu repositorio local con el repositorio remoto en GitHub, de modo que puedas hacer operaciones como \texttt{push} y \texttt{pull}.
+
+
+
+    \subsection{Escribiendo en el Repositorio Remoto}
+
+        Para subir tus cambios al repositorio remoto, utilizas el comando \texttt{git push}. Este comando empuja los cambios locales de tu rama actual al repositorio remoto.
+
+        Si tu repositorio local est\'a vinculado correctamente con el remoto, solo tienes que escribir:
+
+        \begin{lstlisting}
+    git push origin main
+        \end{lstlisting}
+
+        Esto enviar\'a tus cambios de la rama \texttt{main} al repositorio remoto llamado \texttt{origin}.
+
+
+    \subsection{No me deja hacer \texttt{push}, me dice que el cambio ha sido rechazado}
+
+        Este error generalmente ocurre porque hay cambios en el repositorio remoto que no est\'an presentes en tu repositorio local. Git te impedir\'a hacer un \texttt{push} si tu rama local est\'a detr\'as de la rama remota.
+
+        La soluci\'on m\'as com\'un es hacer un \texttt{git pull} para traer los cambios del repositorio remoto antes de hacer el \texttt{push}. El flujo de trabajo ser\'ia el siguiente:
+
+        \begin{lstlisting}
+    git pull origin main
+    git push origin main
+        \end{lstlisting}
+
+        El comando \texttt{git pull} traer\'a los cambios del repositorio remoto y los fusionar\'a con tus cambios locales. Despu\'es de esto, ya podr\'as hacer el \texttt{push} sin problemas.
+
+
+    \subsection{Creando una Rama Remota}
+
+        Para crear una nueva rama en tu repositorio local y luego subirla al repositorio remoto, debes seguir estos pasos:
+
+        Primero, crea y cambia a una nueva rama:
+
+        \begin{lstlisting}
+    git checkout -b nueva-rama
+        \end{lstlisting}
+
+        Luego, empuja esta nueva rama al repositorio remoto con el siguiente comando:
+
+        \begin{lstlisting}
+    git push -u origin nueva-rama
+        \end{lstlisting}
+
+        El par\'ametro \texttt{-u} establece la rama remota \texttt{origin/nueva-rama} como la rama de seguimiento para tu rama local. Esto significa que las futuras operaciones de \texttt{push} y \texttt{pull} se realizar\'an por defecto en esa rama remota.
+
+
+
+    \subsection{Explicaci\'on de los Comandos \texttt{push}, \texttt{pull} y \texttt{fetch}}
+
+        Los comandos \texttt{git push}, \texttt{git pull}, y \texttt{git fetch} son fundamentales para trabajar con repositorios remotos en Git.
+
+        \subsubsection{git push}
+
+            El comando \texttt{git push} se usa para enviar tus cambios locales al repositorio remoto. Si tienes commits en tu rama local que a\'un no han sido subidos, puedes usar este comando para ``empujarlos'' al servidor remoto.
+
+            Ejemplo:
+            \begin{lstlisting}
+    git push origin main
+            \end{lstlisting}
+
+            Este comando sube tus cambios de la rama \texttt{main} al repositorio remoto \texttt{origin}.
+
+    \subsubsection{git pull}
+
+        El comando \texttt{git pull} se utiliza para traer los cambios desde el repositorio remoto y fusionarlos con tu rama local. Este comando es una combinaci\'on de \texttt{git fetch} (que descarga los cambios) y \texttt{git merge} (que los fusiona con tu rama local).
+
+        Ejemplo:
+        \begin{lstlisting}
+    git pull origin main
+        \end{lstlisting}
+
+        Este comando descarga y fusiona los cambios desde la rama \texttt{main} del repositorio remoto \texttt{origin} con tu rama local.
+
+    \subsubsection{git fetch}
+
+        El comando \texttt{git fetch} solo descarga los cambios desde el repositorio remoto sin hacer ninguna fusi\'on con tu rama local. Es \'util cuando solo quieres ver qu\'e cambios han ocurrido en el repositorio remoto sin que se apliquen autom\'aticamente a tu c\'odigo local.
+
+        Ejemplo:
+        \begin{lstlisting}
+    git fetch origin
+        \end{lstlisting}
+
+        Este comando descarga todos los cambios del repositorio remoto sin alterar tu rama local.
