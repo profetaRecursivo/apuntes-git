@@ -1,0 +1,22 @@
+\section{Merge}
+
+    \subsection{Fusionar ramas}
+        Una de las operaciones mas comunes en GIT es fusionar (merge) ramas. Esto significa tomar los cambios de una rama y aplicarlos en otra. Lo mas habitual es trabajar en una rama secundaria (por ejemplo, \texttt{feature-x}) y luego fusionarla con la rama principal (\texttt{main}).
+
+        Para fusionar ramas, primero debemos cambiarnos a la rama que queremos actualizar. Por ejemplo, si queremos fusionar \texttt{feature-x} en \texttt{main}, primero hacemos:
+
+        \begin{lstlisting}
+            \$ git switch main
+        \end{lstlisting}
+
+        Luego ejecutamos el comando de fusion:
+
+        \begin{lstlisting}
+            \$ git merge feature-x
+        \end{lstlisting}
+
+        GIT intentara aplicar todos los cambios de \texttt{feature-x} sobre \texttt{main}. Si no hay conflictos, la fusion se realiza automaticamente y se genera un nuevo commit de merge.
+
+        Es importante entender que el commit de merge tiene como padres a los dos ultimos commits de las ramas involucradas, dejando un registro claro del punto en que las ramas fueron unificadas.
+
+        En caso de que GIT no pueda fusionar automaticamente, se requerira una resolucion de conflictos, lo cual veremos en la siguiente secci\'on.

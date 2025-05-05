@@ -1,0 +1,66 @@
+\subsection{Resolver conflictos}
+    Para resolver un conflicto, debemos abrir manualmente los archivos que GIT marco como conflictivos y decidir que cambios mantener.
+
+    GIT marca las partes en conflicto con estas se\~nales especiales dentro del archivo:
+
+    \begin{lstlisting}
+    <<<<<<< HEAD
+    contenido de la rama actual (donde estas parado)
+    =======
+    contenido de la rama que se esta fusionando
+    >>>>>>> feature-x
+    \end{lstlisting}
+
+    El contenido entre \texttt{<<<<<<< HEAD} y \texttt{=======} representa los cambios que existen en la rama actual (en la que estas parado). El contenido entre \texttt{=======} y \texttt{>>>>>>> feature-x} muestra los cambios que vienen desde la rama que estas intentando fusionar (en este caso, \texttt{feature-x}).
+
+    Debemos editar el archivo para quedarnos solamente con el contenido deseado (puede ser una mezcla de ambos o solo uno) y eliminar completamente las marcas de conflicto (\texttt{<<<<<<<}, \texttt{=======}, \texttt{>>>>>>>}).
+
+    Adem\'as, si usamos un editor de texto o vemos el conflicto en terminal con el comando:
+
+    \begin{lstlisting}
+        \$ git diff
+    \end{lstlisting}
+
+    GIT nos puede mostrar diferencias de esta forma:
+
+    \begin{lstlisting}
+    <<<<<<< HEAD
+    - linea que esta en la rama actual
+    + linea que esta en la rama que se esta intentando fusionar
+    =======
+    \end{lstlisting}
+
+    A veces tambi\'en veremos prefijos como:
+
+    \begin{lstlisting}
+    - contenido eliminado
+    + contenido a\~nadido
+    \end{lstlisting}
+
+    O en el caso de conflicto de lineas:
+
+    \begin{lstlisting}
+    @@ -3,7 +3,7 @@
+     linea 1
+    -linea vieja
+    +linea nueva
+     linea 2
+    \end{lstlisting}
+
+    Estos signos indican que hay diferencias linea por linea. Las lineas que comienzan con \texttt{-} estaban en la rama actual, y las que comienzan con \texttt{+} vienen desde la rama que se quiere fusionar.
+
+    Una vez resueltos todos los conflictos editando los archivos, los agregamos al area de staging con:
+
+    \begin{lstlisting}
+        \$ git add archivo.txt
+    \end{lstlisting}
+
+    Finalmente, para completar la fusion, debemos hacer el commit correspondiente:
+
+    \begin{lstlisting}
+        \$ git commit
+    \end{lstlisting}
+
+    Este commit guardara los cambios resultantes de la resolucion de conflicto. A veces GIT abre un editor para escribir un mensaje indicando que hubo conflictos resueltos manualmente.
+
+    Es muy importante verificar que los archivos funcionan correctamente despues de la resolucion para evitar errores l\'ogicos o de ejecuci\'on.

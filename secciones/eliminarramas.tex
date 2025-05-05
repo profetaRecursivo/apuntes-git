@@ -1,0 +1,39 @@
+\section{Eliminar ramas}
+
+    \subsection{Por qu\'e eliminar ramas?}
+        En GIT, las ramas permiten trabajar en diferentes funcionalidades o correcciones de manera aislada. Sin embargo, si no se eliminan cuando ya no se necesitan, el repositorio puede volverse dif\'icil de mantener.
+        
+        Algunas razones para eliminar ramas:
+        \begin{itemize}
+            \item Reducir el desorden visual al listar ramas.
+            \item Evitar confusiones sobre el estado actual del proyecto.
+            \item Mantener una estructura limpia en el flujo de trabajo.
+        \end{itemize}
+
+    \subsection{C\'omo podar las ramas?}
+        Cuando trabajamos con un repositorio remoto, muchas veces se eliminan ramas en el servidor pero siguen apareciendo en nuestro repositorio local. Para limpiar (``podar'') esas referencias obsoletas podemos usar:
+        \begin{lstlisting}
+$ git remote prune origin
+        \end{lstlisting}
+        Esto eliminar\'a las referencias locales a ramas remotas que ya no existen en el servidor remoto. Es una buena pr\'actica hacerlo de vez en cuando si trabajamos con muchas ramas.
+
+    \subsection{C\'omo eliminar ramas de mi repositorio local que ya no se usan?}
+        Para eliminar una rama local que ya no necesitamos, usamos:
+        \begin{lstlisting}
+$ git branch -d nombre-rama
+        \end{lstlisting}
+        Este comando verifica que la rama ya haya sido fusionada con la rama actual. Si no ha sido fusionada y aún así quieres eliminarla, puedes forzar la eliminaci\'on con:
+        \begin{lstlisting}
+$ git branch -D nombre-rama
+        \end{lstlisting}
+
+        Para asegurarte de que ya no la necesitas, puedes revisar primero si fue fusionada:
+        \begin{lstlisting}
+$ git branch --merged
+        \end{lstlisting}
+        Este comando muestra las ramas que ya han sido fusionadas a la actual.
+
+        Si deseas listar las ramas que \textbf{no} han sido fusionadas, puedes usar:
+        \begin{lstlisting}
+$ git branch --no-merged
+        \end{lstlisting}
