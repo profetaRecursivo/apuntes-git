@@ -1,0 +1,45 @@
+\section{Commits}
+
+    \subsection{Qu\'e es un commit?}
+        Un \texttt{commit} en GIT representa un punto en el tiempo que guarda el estado de los archivos que fueron preparados (staged). Es una especie de ``fotograf\'ia'' del proyecto en un momento determinado. 
+        Cada commit contiene informaci\'on como:
+        \begin{itemize}
+            \item El autor que realiz\'o el cambio.
+            \item La fecha y hora del commit.
+            \item Un mensaje descriptivo de los cambios.
+            \item Un hash \'unico que lo identifica.
+        \end{itemize}
+        Gracias a los commits, es posible regresar a versiones anteriores, comparar diferencias entre estados y colaborar con otros sin sobrescribir trabajo.
+
+    \subsection{C\'omo puedo hacer un commit?}
+        Una vez que uno o varios archivos han sido agregados al \texttt{staging area}, se puede registrar ese conjunto de cambios usando el siguiente comando:
+        \begin{lstlisting}
+            \$ git commit -m "mensaje descriptivo del cambio"
+        \end{lstlisting}
+        La bandera \texttt{-m} sirve para escribir el mensaje directamente desde la l\'inea de comandos.
+        
+        Por ejemplo:
+        \begin{lstlisting}
+            \$ git commit -m "agregada la seccion de introduccion"
+        \end{lstlisting}
+
+        Si omitimos \texttt{-m}, GIT abrir\'a el editor configurado (por defecto \texttt{Vim}) para que escribamos el mensaje del commit.
+    
+        Nosotros lo tenemos configurado como \texttt{nvim}
+
+    \subsection{Qu\'e es el HEAD?}
+        \texttt{HEAD} es un puntero que indica el \textbf{commit actual} en el que estamos trabajando. Siempre apunta al \'ultimo commit en la rama activa.
+        
+        Cuando realizamos un nuevo commit, \texttt{HEAD} se mueve al nuevo commit creado. 
+        Si cambiamos de rama, \texttt{HEAD} apuntar\'a al commit m\'as reciente de esa nueva rama.
+
+        Tambi\'en podemos ver el contenido de \texttt{HEAD} con:
+        \begin{lstlisting}
+            \$ cat .git/HEAD
+        \end{lstlisting}
+        O podemos ver hash del commit exacto al que apunta:
+        \begin{lstlisting}
+            \$ git rev-parse HEAD
+        \end{lstlisting}
+
+        Saber qu\'e es \texttt{HEAD} es importante para entender c\'omo funcionan los cambios de rama, los rebase, y otros comandos avanzados de GIT.
