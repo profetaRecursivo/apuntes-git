@@ -37,12 +37,12 @@
                     \end{lstlisting}
 
     \subsection{Configurar el editor de c\'odigo que abre GIT}
-        GIT tiene configurado abrir por defecto el editor de texto \texttt{Vim} para poder modificar los archivos cuando encuentra conflictos o cuando usamos el comando \texttt{$ git commit} sin la bandera y el argumento: \texttt{-m ``descripcion del commit''}.
+        GIT tiene configurado abrir por defecto el editor de texto \texttt{Vim} para poder modificar los archivos cuando encuentra conflictos o cuando usamos el comando \texttt{\$ git commit} sin la bandera y el argumento: \texttt{-m "descripcion del commit"}.
         En caso de querer cambiar el editor por defecto disponemos del siguiente comando:
             \begin{lstlisting}
     $ git config --global core.editor "el comando para abrir tu editor"
             \end{lstlisting}
-        En mi caso voy a colocar el editor nvim, entonces el comando ser\'ia:
+        En mi caso voy a colocar el editor neovim, entonces el comando ser\'ia:
             \begin{lstlisting}
     $ git config --global core.editor "nvim"
             \end{lstlisting}
